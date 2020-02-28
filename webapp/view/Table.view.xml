@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:u="sap.ui.unified" controllerName="Application.ExcelImportExport.controller.Table"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+					<VBox>
+						<Toolbar height="3rem">
+							<Title text="Excel Data Upload:"/>
+							<u:FileUploader
+								id="fileUploader"
+								name="myFileUpload"
+								uploadUrl="upload/"
+								tooltip="Upload your file to the local server"
+								uploadComplete="handleUploadComplete"
+								fileType="csv,xlsx"/>
+							<Button icon="sap-icon://upload" press="onUpload"/>	
+						</Toolbar>
+						<Table id="idItemTbl"
+							items="{/}">
+							<columns>
+								<Column
+									width="12em">
+									<Text text="ItemNo" />
+								</Column>	
+								<Column
+									width="12em">
+									<Text text="ItemDesc" />
+								</Column>	
+							</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{ItemNo}" />
+											<Text text="{ItemDesc}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+						</Table>	
+					</VBox>
+				
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
